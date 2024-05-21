@@ -1,0 +1,142 @@
+
+
+
+
+/* MENU */
+
+.menu-button {
+    width: 45px;
+    height: 45px;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+
+}
+
+.menu-icon {
+    background-color:green;
+    color: green;
+    display: block;
+    width: 40px;
+    height: 8px;
+}
+
+.menu-icon::before, .menu-icon::after, .menu-icon {
+    width: 40px;
+    height: 8px;
+    background-color: var(--BORDER-COLOR);
+    border-radius: 5px;
+
+}
+.menu-icon::before {
+    display: block;
+    content: "";
+    position: relative;
+    top: -12px;
+    /* background-color:red; */
+
+}
+.menu-icon::after {
+    display: block;
+    content: "";
+    position: relative;
+    top: 4px;
+    /* background-color:blue; */
+
+}
+
+
+/* HAMBURGER ANIMATION */
+.bottom-menu .menu-icon::before{
+    transform-origin: top right;
+    transition-property: transform;
+    transition-duration: var(--HAM-ANIMATION-DURATION);
+}
+.bottom-menu .menu-icon::after  {
+    transform-origin: bottom right;
+    transition-property: transform;
+    transition-duration: var(--HAM-ANIMATION-DURATION);
+}
+
+.bottom-menu:hover .menu-icon::before {
+    transform: rotate(-45deg);
+    transform-origin: top right;
+    
+}
+
+.bottom-menu:hover .menu-icon::after {
+    transform: rotate(45deg);
+    transform-origin: bottom right;
+}
+
+.bottom-menu .menu-icon {
+    background-color: var(--BORDER-COLOR);
+    transition-property: transform, background-color;
+    transition-duration: calc(0.6 * var(--HAM-ANIMATION-DURATION)),
+    calc( 0.5 * var(--HAM-ANIMATION-DURATION) );
+}
+
+.bottom-menu:hover .menu-icon {
+    transform: rotate(360deg);
+    background-color: var(--HEADER-BGCOLOR);
+}
+
+/* END HAMBURGER ANIMATION */
+
+
+
+/* BOTTOM MENU SLIDE ANIMATION */
+.bottom-menu:hover .hidden-bottom-menu{
+    transform-origin: top;
+    display: flex;
+    animation-name: menuSlide;
+    animation-duration: calc(0.3 * var(--HAM-ANIMATION-DURATION));
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+
+}
+
+@keyframes menuSlide {
+    0% {
+        transform: scaleY(0);
+    }
+    80% {
+        transform: scaleY(1.2);
+    }
+    100% {
+        display: flex;
+        transform: scaleY(1);
+    }
+}
+
+/* END BOTTOM MENU SLIDE ANIMATION */
+
+/* BOTTOM MENU REVERSE ANIMATION */
+
+.bottom-menu:not(:hover) .hidden-bottom-menu {
+    transform-origin: top;
+    animation-name: menuSlideReverse;
+    animation-duration: calc(0.3 * var(--HAM-ANIMATION-DURATION));
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-name: menuSlideReverse;
+}
+
+@keyframes menuSlideReverse {
+    0% {
+        display: flex;
+        transform: scaleY(1);
+    }
+    100% {
+        display: none;
+        transform: scaleY(0);
+    }
+}
+
+/* END BOTTOM MENU REVERSE ANIMATION */

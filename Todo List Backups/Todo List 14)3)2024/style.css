@@ -1,0 +1,126 @@
+/* RESET */
+
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+:root {
+    --HEADER-HEIGHT: 60px;
+    --OUTER-PADDING: 2rem;
+    --INPUT-BORDER-RADIUS: 2rem;
+
+    /* COLOR */
+    --BORDER-COLOR: #f3c969;
+    --FONT-COLOR: #fff5b2; 
+}
+
+input, button {
+    font-size: inherit;
+    font-family: inherit;
+    text-align: center;
+    color: inherit;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 2*var(--OUTER-PADDING));
+    font-family: cursive;
+    font-size: 1.5rem;
+    margin: var(--OUTER-PADDING);
+    background: linear-gradient(45deg, #edff86, #d4fcc3);
+    color: var(--FONT-COLOR);
+}
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    min-height: 300px;
+    max-height: 600px;
+    min-width: 300px;
+    max-width: 500px;
+    border: 4px double var(--BORDER-COLOR);
+    border-radius: 1rem;
+    padding: 1rem;
+    row-gap: 1rem;
+    background: rgba(0, 0, 0, 0.6);
+   
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
+    width: 100%;
+    max-height: var(--HEADER-HEIGHT);
+    position: sticky;
+    top: 1rem;
+}
+
+/* INPUT SECTION */
+.task-form {
+    display: flex;
+    position: relative;
+    width: 100%;
+    border-radius: var(--INPUT-BORDER-RADIUS);
+    border: 2px solid var(--BORDER-COLOR) ;
+}
+
+
+.add-button {
+    width: calc(var(--HEADER-HEIGHT)*2.4);
+    height: var(--HEADER-HEIGHT);
+    border: 2px solid var(--BORDER-COLOR);
+    border-radius: var(--INPUT-BORDER-RADIUS);
+    background-color: black;
+
+}
+.add-button:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+    
+}
+
+.add-button:active {
+    background-color: orange;
+    
+}
+
+.task-input {
+    width: 100%;
+    height: var(--HEADER-HEIGHT);
+    border-radius: var(--INPUT-BORDER-RADIUS);
+    border: none;
+    outline: none;
+    padding-inline: 1rem;
+    background: transparent;
+}
+.task-input:hover {
+    /* caret-color: red; */
+    cursor: pointer ;
+}
+
+
+/* LIST SECTION/ TASKS */
+.task-section {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    overflow-y: auto;
+}
+
+.task-container {
+
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.5rem; 
+}

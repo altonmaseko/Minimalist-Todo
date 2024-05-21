@@ -1,0 +1,227 @@
+/* RESET */
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+:root {
+    --HEADER-HEIGHT: 60px;
+    --OUTER-PADDING: 2rem;
+    --INPUT-BORDER-RADIUS: 2rem;
+    --MAIN-WIDTH: 600px;
+    --SIDEBAR-WIDTH: 220px;
+
+    /* COLOR */
+    --BORDER-COLOR: #f3c969;
+    --FONT-COLOR: #fff5b2;
+
+    /* ANIMATION */
+    --HAM-ANIMATION-DURATION: 1.5s;
+
+}
+
+input,
+button {
+    font-size: inherit;
+    font-family: inherit;
+    text-align: center;
+    color: inherit;
+}
+
+button {
+    color: var(--FONT-COLOR);
+    background-color: rgba(0, 0, 0, 1);
+    border-radius: 2rem;
+    border: 0.2rem solid var(--BORDER-COLOR);
+    display: grid;
+    place-content: center;
+    min-width: 100px;
+    /* height: var(--HEADER-HEIGHT); */
+    padding: 0.4rem;
+
+}
+
+button:hover {
+    transform: scale(1.06);
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 2*var(--OUTER-PADDING));
+    font-family: cursive;
+    font-size: 1.5rem;
+    /* margin: var(--OUTER-PADDING); */
+    background: linear-gradient(45deg, #edff86, #d4fcc3);
+    color: var(--FONT-COLOR);
+    gap: 1rem;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    min-height: 300px;
+    max-height: var(--MAIN-WIDTH);
+    min-width: 250px;
+    max-width: 500px;
+    border: 4px double var(--BORDER-COLOR);
+    border-radius: 1rem;
+    padding: 1rem;
+    row-gap: 1rem;
+    background: rgba(0, 0, 0, 0.6);
+
+}
+
+.outer-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    gap: 1rem;
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
+    width: 100%;
+    max-height: var(--HEADER-HEIGHT);
+    position: sticky;
+    top: 1rem;
+}
+
+/* INPUT SECTION */
+.task-form {
+    display: flex;
+    position: relative;
+    width: 100%;
+    border-radius: var(--INPUT-BORDER-RADIUS);
+    border: 2px solid var(--BORDER-COLOR);
+}
+
+
+.add-button {
+    width: calc(var(--HEADER-HEIGHT)*2.4);
+    height: var(--HEADER-HEIGHT);
+    border: 2px solid var(--BORDER-COLOR);
+    border-radius: var(--INPUT-BORDER-RADIUS);
+    background-color: black;
+
+}
+
+.add-button:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+
+}
+
+.add-button:active {
+    background-color: orange;
+
+}
+
+.task-input {
+    width: 100%;
+    height: var(--HEADER-HEIGHT);
+    border-radius: var(--INPUT-BORDER-RADIUS);
+    border: none;
+    outline: none;
+    padding-inline: 1rem;
+    background: transparent;
+}
+
+
+
+
+
+/* LIST SECTION/ TASKS */
+.task-section {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    overflow-y: auto;
+}
+
+.task-container {
+
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.5rem;
+}
+
+/* Bottom menu */
+.vertical-container {
+    max-width: var(--MAIN-WIDTH);
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+    position: relative;
+}
+
+.side-folders {
+    width: var(--SIDEBAR-WIDTH);
+    min-height: 200px;
+    max-height: 80vh;
+    min-width: 120px;
+    background-color: rgba(0, 0, 0, 0.4);
+    /* position: absolute;
+    left: calc((10px + var(--SIDEBAR-WIDTH)) * -1);
+    top: 0px; */
+    border-radius: 2rem 0.5rem 0.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    overflow: auto;
+}
+
+.side-folders h3 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.folder {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--FONT-COLOR);
+}
+
+.side-folders:hover {
+    cursor: pointer;
+}
+
+.folder-selected {
+    font-size: 1.2em;
+    color: var(--BORDER-COLOR);
+    text-shadow: 2px 2px 2px black;
+}
+
+
+.bottom-menu {
+    display: flex;
+    gap: 1rem;
+    min-width: fit-content;
+    width: 1px;
+    overflow: visible;
+}
+
+.hidden-bottom-menu {
+    display: none;
+    flex-direction: column;
+    gap: 0.4rem;
+    min-width: none;
+
+}
